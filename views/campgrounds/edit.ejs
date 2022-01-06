@@ -1,0 +1,78 @@
+<% layout('layouts/boilerplate') %>
+
+    < <a href="/campgrounds/<%= campground.id%>" class="btn btn-primary">Back to Ground</a>
+
+        <div class="row">
+            <h1 class="text-center">Edit Ground</h1>
+            <div class="col-6 offset-3">
+                <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST" novalidate
+                    class="validated-form" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="campground[title]"
+                            value="<%= campground.title%>" required>
+                        <div class=" valid-feedback">
+                            Works!
+                        </div>
+                        <div class="invalid-feedback">
+                            Title required
+                        </div>
+                    </div>
+                    <div class=" mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="location" name="campground[location]"
+                            value="<%= campground.location%>" required>
+                        <div class="valid-feedback">
+                            Works!
+                        </div>
+                        <div class="invalid-feedback">
+                            Location required
+                        </div>
+                    </div>
+                    <div class=" input-group mb-3">
+                        <div class="form-file custom-file">
+                            <label class="form-file-label" for="image">Upload Images</label>
+                            <input type="file" class="form-file-input form-control" id="image" name="image" multiple>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <% campground.images.forEach(function(img, i) { %>
+                            <img src="<%=img.thumbnail %>" class="img-thumbnail" alt="">
+                            <div class="form-check-inline">
+                                <input type="checkbox" id="image-<%=i%>" name="deleteImages[]"
+                                    value="<%=img.filename%>">
+                            </div>
+                            <label for="image-<%=i%>">Delete?</label>
+                            <% })%>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea type="text" class="form-control" id="description" name="campground[description]"
+                            required><%= campground.description %></textarea>
+                        <div class="valid-feedback">
+                            Works!
+                        </div>
+                        <div class="invalid-feedback">
+                            Description required
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">&#8377;</span>
+                            <input type="text" id="price" class="form-control" placeholder="0.00"
+                                name="campground[price]" aria-label="price" aria-describedby="basic-addon1"
+                                value="<%= campground.price%>" required>
+                            <div class="valid-feedback">
+                                Works!
+                            </div>
+                            <div class="invalid-feedback">
+                                Price required
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-success mb-3">Update Ground</button>
+                </form>
+            </div>
+        </div>

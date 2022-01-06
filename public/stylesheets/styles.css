@@ -1,0 +1,43 @@
+.navbar-brand{
+    font-size: 30px;
+}
+.nav-link{
+    font-size: 20px;
+}
+.nav-link:hover{
+    color: white;
+}
+.carousel{
+    background-size: cover;
+    height: 689px;
+}
+.card{
+    padding: 15px 10px;
+    margin: 50px 10px;
+}
+footer{
+    color: white;
+    background-color: rgba(20, 20, 20, 0.8);
+}
+.dropdown-item:hover{
+    background-color: rgb(255, 255, 255);
+}
+#myVideo {
+  object-fit: cover;
+  left: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100vh;
+  height: 100vh;
+  opacity: 0.9;
+}
+/* .main {
+  position: fixed;
+  margin-top: 10%;
+  color: #fff;
+  width: 50%;
+  margin-left: 25%;
+  padding: 50px;
+  background: rgba(0, 0, 0, 0.7);
+} */
